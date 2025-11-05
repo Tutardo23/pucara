@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react"; 
+import { useState, useCallback, useMemo, useEffect } from "react";
 import ReactFlow, {
   ReactFlowProvider,
   Controls,
@@ -9,37 +9,27 @@ import ReactFlow, {
   useEdgesState,
   useReactFlow,
   type Node,
-  type Edge, 
-  type ReactFlowInstance
+  type Edge,
 } from "reactflow";
 import "reactflow/dist/style.css";
 
-import type { OrgNode } from "@/types/org"; 
+import type { OrgNode } from "@/types/org";
 import { orgData } from "@/data/org";
 import { getLayoutedElements } from "@/lib/layout";
 import CustomNode from "./CustomNode";
 import InfoSidebar from "./InfoSidebar";
 
-// Tipo del nodo
-type CustomOrgNode = OrgNode & { 
+type CustomOrgNode = OrgNode & {
   depth: number;
   hasChildren: boolean;
   isExpanded: boolean;
 };
 
-const nodeTypes = {
-  custom: CustomNode,
-};
+const nodeTypes = { custom: CustomNode };
 
-// --- Tipos de los Handlers ---
-type CustomNodeClick = (
-  event: React.MouseEvent,
-  node: Node<CustomOrgNode>
-) => void;
+type CustomNodeClick = (event: React.MouseEvent, node: Node<CustomOrgNode>) => void;
 type CustomPaneClick = () => void;
 
-
-// --- Componente Interno del Flow ---
 function OrgChartFlow({
   nodes: layoutedNodes,
   edges: layoutedEdges,
@@ -55,55 +45,60 @@ function OrgChartFlow({
 }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(layoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
-  
-  const { fitBounds } = useReactFlow();
+  const { fitView, fitBounds } = useReactFlow();
 
-  // Sincroniza el estado si los nodos cambian (por expansión)
+  // 🔹 Centrar al cargar
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      fitView({ duration: 800, padding: 0.3 });
+    }, 200);
+    return () => clearTimeout(timeout);
+  }, [fitView]);
+
+  // 🔹 Actualizar nodos al expandir
   useEffect(() => {
     setNodes(layoutedNodes);
     setEdges(layoutedEdges);
   }, [layoutedNodes, layoutedEdges, setNodes, setEdges]);
-  
-  const zoomToNode = (node: Node<CustomOrgNode>) => {
-    const nodeBounds = {
-      x: node.position.x,
-      y: node.position.y,
-      width: node.width || 320,
-      height: node.height || 120,
-    };
-    fitBounds(nodeBounds, { duration: 400, padding: 0.8 });
-  };
 
-  // --- ¡AQUÍ ESTÁ LA CORRECCIÓN DEL ZOOM! ---
+  // 🔹 Alejar solo para los 2 nodos principales
+  const handleExpandAndRefit = useCallback(
+    (nodeId: string) => {
+      if (nodeId === "grupo-niveles" || nodeId === "grupo-areas") {
+        setTimeout(() => {
+          fitView({ duration: 600, padding: 0.45 });
+        }, 300);
+      }
+    },
+    [fitView]
+  );
+
+  // 🔹 Zoom hacia un nodo específico
+  const zoomToNode = useCallback(
+    (node: Node<CustomOrgNode>) => {
+      const nodeBounds = {
+        x: node.position.x,
+        y: node.position.y,
+        width: node.width || 320,
+        height: node.height || 120,
+      };
+      fitBounds(nodeBounds, { duration: 500, padding: 0.3 });
+    },
+    [fitBounds]
+  );
+
   const handleNodeClick: CustomNodeClick = (event, node) => {
     const target = event.target as HTMLElement;
 
     if (target.closest('[data-action="toggle"]')) {
-      // --- Clic en el botón +/- ---
-      // 1. Solo avisa al padre para expandir/colapsar
+      // ➕ Cuando se presiona el "+", controlamos según el nodo
       onToggleExpand(node.id);
-      
-      // 2. ¡YA NO HACE ZOOM!
-      // (Borramos el 'if (!node.data.isExpanded)' que llamaba a zoomToNode)
-
+      handleExpandAndRefit(node.id);
     } else {
-      // --- Clic en el cuerpo de la caja ---
-      // 1. Avisa al padre para abrir el sidebar
-      onNodeSelect(node);
-      // 2. SÍ hace zoom (Como pediste)
+      // 👁️ Clic en el cuerpo → zoom al nodo
       zoomToNode(node);
+      onNodeSelect(node);
     }
-  };
-  // ------------------------------------------
-
-  const handlePaneClick: CustomPaneClick = () => {
-    onPaneClick(); // Solo cierra el panel, no mueve la cámara
-  };
-
-  // Esta función se llama UNA SOLA VEZ cuando React Flow carga
-  const onFlowInit = (reactFlowInstance: ReactFlowInstance) => {
-    // Le decimos que centre la vista
-    reactFlowInstance.fitView({ duration: 600, padding: 0.1 });
   };
 
   return (
@@ -113,64 +108,56 @@ function OrgChartFlow({
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
       nodeTypes={nodeTypes}
-      panOnScroll={false}   
-      zoomOnScroll={true}
+      panOnScroll={false}
+      zoomOnScroll
       zoomOnDoubleClick
       className="react-flow-organigrama"
       onNodeClick={handleNodeClick}
-      onPaneClick={handlePaneClick}
+      onPaneClick={onPaneClick}
       nodesDraggable={true}
-      onInit={onFlowInit} // <-- El zoom inicial estable
     >
-      <Controls /> 
+      <Controls />
       <Background />
     </ReactFlow>
   );
 }
 
-// --- Componente 'Organigrama' (Principal) ---
-// (Esta parte no necesita cambios)
 export default function Organigrama() {
   const [selectedNode, setSelectedNode] = useState<Node<CustomOrgNode> | null>(null);
-  
-  const [expandedNodes, setExpandedNodes] = useState(new Set<string>(['consejo', 'grupo-niveles', 'grupo-areas']));
-  
-  const { nodes, edges } = useMemo(() => {
-    return getLayoutedElements(orgData, expandedNodes);
-  }, [expandedNodes]);
+  const [expandedNodes, setExpandedNodes] = useState(new Set<string>(["consejo"]));
+
+  const { nodes, edges } = useMemo(
+    () => getLayoutedElements(orgData, expandedNodes),
+    [expandedNodes]
+  );
 
   const handleSelectNode = useCallback((node: Node<CustomOrgNode>) => {
     setSelectedNode(node);
   }, []);
 
   const handleToggleExpand = useCallback((nodeId: string) => {
-    setExpandedNodes(currentExpanded => {
+    setExpandedNodes((currentExpanded) => {
       const newExpanded = new Set(currentExpanded);
-      if (newExpanded.has(nodeId)) {
-        newExpanded.delete(nodeId);
-      } else {
-        newExpanded.add(nodeId);
-      }
+      if (newExpanded.has(nodeId)) newExpanded.delete(nodeId);
+      else newExpanded.add(nodeId);
       return newExpanded;
     });
-  }, []); 
+  }, []);
 
   const handlePaneClick: CustomPaneClick = useCallback(() => {
-    setSelectedNode(null); 
-  }, []); 
+    setSelectedNode(null);
+  }, []);
 
   return (
     <div className="w-screen h-screen flex flex-col bg-neutral-50">
-      
       <h1 className="text-xl font-semibold p-4 text-center border-b border-neutral-200 bg-white shadow-sm">
         Organigrama Institucional
       </h1>
 
       <div className="flex-grow flex flex-row overflow-hidden relative">
-        
         <div className="flex-grow h-full">
           <ReactFlowProvider>
-            <OrgChartFlow 
+            <OrgChartFlow
               nodes={nodes}
               edges={edges}
               onNodeSelect={handleSelectNode}
@@ -187,12 +174,8 @@ export default function Organigrama() {
           `}
           style={{ width: selectedNode ? "24rem" : "0" }}
         >
-          <InfoSidebar 
-            node={selectedNode} 
-            onClose={handlePaneClick}
-          />
+          <InfoSidebar node={selectedNode} onClose={handlePaneClick} />
         </div>
-
       </div>
     </div>
   );
