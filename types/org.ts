@@ -6,6 +6,7 @@ export interface NodeDetails {
   descripcion?: string;
   horas?: number;
   members?: NodeDetails[]; 
+  note?: string; // <-- ¡AQUÍ ESTÁ LA CORRECCIÓN!
 }
 
 export interface OrgNode {
@@ -13,5 +14,4 @@ export interface OrgNode {
   rows: string[][]; 
   details?: NodeDetails; 
   children?: OrgNode[];
-  // ¡Sin propiedad 'layout'!
 }
