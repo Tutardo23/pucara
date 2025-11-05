@@ -223,7 +223,7 @@ export const orgData: OrgNode = {
         },
         {
           id: "capellanes",
-          rows: [["Capellanía"], ["Jesús Galindo"], ["Bustos"], ["Pedro Lobo Zavalia"]],
+          rows: [["Capellanía"], ["Jesús Galindo Bustos"], ["Pedro Lobo Zavalia"]],
           details: { id: "capellanes-equipo", nombre: "Equipo de Capellanía", cargo: "..." },
         },
         {
