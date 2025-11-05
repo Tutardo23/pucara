@@ -27,63 +27,48 @@ export const orgData: OrgNode = {
       rows: [["NIVELES DE EDUCACIÓN"]], 
       details: {id: 'brazo-izq-details', nombre: 'Niveles de Educación', cargo: 'Agrupador de niveles'},
       children: [
-        // --- NODO TALLER (ESTRUCTURA FINAL Y CORREGIDA) ---
+        // --- NODO TALLER (ACTUALIZADO VISUALMENTE) ---
         {
           id: "taller",
-          // Coordinadora en la caja principal (sin horas)
           rows: [
             ["TALLER DE INGLÉS"],
             ["Coordinadora"],
-            ["Prof. Laura Lazarte"], 
+            ["Prof. Laura Lazarte (9 hs)"],
           ], 
           details: { 
             id: "taller-info", 
             nombre: "Taller de Inglés", 
             cargo: "Coordinadora: Prof. Laura Lazarte (9 hs - Contratada)",
             descripcion: "El Taller de Inglés inició el Ciclo Lectivo 2025 con 9 niveles.",
-            members: [ // Solo el detalle de la Coordinadora
-              {
-                id: "laura-lazarte",
-                nombre: "Prof. Laura Lazarte", 
-                cargo: "Coordinadora Taller de Inglés (Contratada)", 
-                horas: 9, 
-                descripcion: "Coordinar docentes, supervisar clases, material y evaluaciones. Atención a padres y alumnas. Organizar campamento y Concert (en conjunto con la coordinadora del Colegio Pucara). Evaluar y preparar a alumnas que rinden Examen Internacional de Cambridge."
-              },
+            members: [ 
+              { id: "laura-lazarte", nombre: "Prof. Laura Lazarte", cargo: "Coordinadora Taller de Inglés (Contratada)", horas: 9, descripcion: "Funciones: Coordinar docentes, supervisar clases, material y evaluaciones. Atención a padres y alumnas. Organizar campamento y Concert. Evaluar y preparar a alumnas que rinden Examen Internacional de Cambridge." },
+              { id: "mercedes-araoz", nombre: "Mercedes Araoz Teran", cargo: "Secretaria (Contratada)", horas: 6, descripcion: "Control de asistencia de docentes y alumnas. Atención de padres y alumnos." },
+              // (Aquí moví a las docentes a los 'details' de su propio nodo)
             ],
           },
           children: [
-            // --- 1. SECRETARÍA (Hija Directa) ---
-            {
-              id: "secretaria-taller",
-              rows: [["Secretaria Taller"], ["Mercedes Araoz Teran"]], // Secretaría en caja separada (sin horas)
-              details: {
-                id: "mercedes-araoz",
-                nombre: "Mercedes Araoz Teran",
-                cargo: "Secretaria (Contratada)",
-                horas: 6, // Horas aquí
-                descripcion: "Control de asistencia de docentes y alumnas. Atención de padres y alumnos."
-              },
-            },
-            // --- 2. GRUPO DOCENTE (CONSOLIDADO) ---
-            {
-              id: "docentes-taller-grupo",
-              // Lista de docentes consolidada y simplificada (sin grados ni horas)
-              rows: [
-                ["Cuerpo Docente Taller"],
-                ["Prof. Florencia Salas"],
-                ["Prof. Karina Correa"],
-                ["Prof. Luciana Cruz"],
-                ["Prof. Sofia Filippini"],
-                ["Prof. Natalia Agüero"],
-                ["Prof. Lucia Rivarola"],
-                ["Prof. Iris Torres"],
-              ],
-              details: {
-                id: "docentes-taller-details",
-                nombre: "Cuerpo Docente Taller de Inglés",
+            { id: "secretaria-taller", rows: [["Secretaria Taller"], ["Mercedes Araoz Teran (6 hs)"]], details: { id: "mercedes-araoz-det", nombre: "Mercedes Araoz Teran", cargo: "Secretaria (Contratada)", horas: 6, descripcion: "Control de asistencia de docentes y alumnas. Atención de padres y alumnos." } },
+            
+            // --- ¡AQUÍ ESTÁ LA CORRECCIÓN! ---
+            { 
+              id: "docentes-taller-grupo", 
+              rows: [ 
+                ["Cuerpo Docente Taller"], 
+                ["Prof. Florencia Salas (6 hs)"], 
+                ["Prof. Karina Correa (6 hs)"], 
+                ["Prof. Luciana Cruz (6 hs)"], 
+                ["Prof. Sofia Filippini (6 hs)"], 
+                ["Prof. Natalia Agüero (6 hs)"], 
+                ["Prof. Lucia Rivarola (6 hs)"], 
+                ["Prof. Iris Torres (3 hs)"], 
+              ], 
+              details: { 
+                id: "docentes-taller-details", 
+                nombre: "Cuerpo Docente Taller de Inglés", 
                 cargo: "Docentes Contratados",
                 descripcion: "Listado completo de docentes del taller con sus horas y grados asignados:",
-                members: [ // Full details con horas y grados
+                // Los detalles de 'members' ahora incluyen el grado en el 'cargo'
+                members: [
                   { id: "florencia-salas", nombre: "Prof. Florencia Salas", cargo: "Docente 1º grado (Contratada)", horas: 6 },
                   { id: "karina-correa", nombre: "Prof. Karina Correa", cargo: "Docente 2º grado (Contratada)", horas: 6 },
                   { id: "luciana-cruz", nombre: "Prof. Luciana Cruz", cargo: "Docente 3º grado (Contratada)", horas: 6 },
@@ -93,7 +78,7 @@ export const orgData: OrgNode = {
                   { id: "mercedes-f-lic", nombre: "Prof. Mercedes Fernandez", cargo: "Docente 6º grado (Licencia)", horas: 6 },
                   { id: "iris-torres", nombre: "Prof. Iris Torres", cargo: "Docente 2º Año Secundario (Contratada)", horas: 3 },
                 ]
-              },
+              }, 
               children: [] 
             }
           ]
@@ -101,7 +86,7 @@ export const orgData: OrgNode = {
         // --- NIVEL INICIAL ---
         {
           id: "nivel-inicial",
-          rows: [["Dirección Nivel Inicial"], ["Gabriela Ortega"]],
+          rows: [["Dirección Nivel Inicial"], ["Gabriela Ortega (40 hs)"]],
           details: { id: "gabriela-ortega", nombre: "Gabriela Ortega", cargo: "Directora Nivel Inicial", horas: 40 },
           children: [ 
             { id: "asesor-pedagogico-inicial", rows: [["Asesor pedagogico"]], details: { id: "asesor-pedagogico-inicial-details", nombre: "Asesor Pedagógico", cargo: "Nivel Inicial" } },
@@ -112,7 +97,7 @@ export const orgData: OrgNode = {
         // --- NIVEL PRIMARIO ---
         {
           id: "nivel-primario",
-          rows: [["Director Nivel Primario"], ["Fátima Del Rio"]],
+          rows: [["Director Nivel Primario"], ["Fátima Del Rio (40 hs)"]],
           details: { id: "fatima-del-rio-primario", nombre: "Fátima Del Rio", cargo: "Directora Nivel Primario", horas: 40 },
           children: [
             { id: "doe-primario", rows: [["DOE"], ["Psicólogas"]], details: { id: "doe-primario-details", nombre: "DOE Nivel Primario", cargo: "Psicólogas" } },
@@ -127,67 +112,20 @@ export const orgData: OrgNode = {
           ]
         },
         
-        // --- NIVEL SECUNDARIO (COMPLETO) ---
+        // --- NIVEL SECUNDARIO ---
         {
           id: "nivel-secundario",
-          rows: [["Director Nivel Secundario"], ["Cruz Prats Griet Lucia"]],
+          rows: [["Director Nivel Secundario"], ["Cruz Prats Griet Lucia (40 hs)"]],
           details: { id: "cruz-prats", nombre: "Cruz Prats Griet Lucia", cargo: "Directora Nivel Secundario", horas: 40 },
           children: [ 
-            {
-              id: "doe-secundario",
-              rows: [["DOE"], ["Psicóloga", "Psicopedagoga"]],
-              details: { id: "doe-secundario-details", nombre: "DOE Nivel Secundario", cargo: "Psicóloga y Psicopedagoga" },
-            },
-            {
-              id: "sec-secundario",
-              rows: [["Secretaria de Nivel"], ["Eugenia Barrientos"]],
-              details: { id: "eugenia-barrientos", nombre: "Eugenia Barrientos", cargo: "Secretaria Nivel Secundario" },
-            },
-            {
-              id: "coord-ingles-secundario",
-              rows: [["Coordinación Inglés"]],
-              details: { id: "coord-ingles-secundario-details", nombre: "Coordinación Inglés", cargo: "Nivel Secundario" },
-              children: [
-                { id: "docentes-ingles-secundario", rows: [["Docentes Inglés"]], details: { id: "docentes-ingles-secundario-details", nombre: "Docentes Inglés", cargo: "Nivel Secundario" } }
-              ]
-            },
-            {
-              id: "coord-edfisica-secundario",
-              rows: [["Coordinación Educación Física"]],
-              details: { id: "coord-edfisica-secundario-details", nombre: "Coordinación Educación Física", cargo: "Nivel Secundario" },
-              children: [
-                { id: "docentes-edfisica-secundario", rows: [["Docentes"]], details: { id: "docentes-edfisica-secundario-details", nombre: "Docentes Educación Física", cargo: "Nivel Secundario" } }
-              ]
-            },
-            {
-              id: "coord-feyvida-secundario",
-              rows: [["Coordinación Fe y Vida"]],
-              details: { id: "coord-feyvida-secundario-details", nombre: "Coordinación Fe y Vida", cargo: "Nivel Secundario" },
-              children: [
-                { id: "docentes-feyvida-secundario", rows: [["Docentes"]], details: { id: "docentes-feyvida-secundario-details", nombre: "Docentes Fe y Vida", cargo: "Nivel Secundario" } }
-              ]
-            },
-            {
-              id: "coord-tutorias-secundario",
-              rows: [["Coordinación Tutorias"]],
-              details: { id: "coord-tutorias-secundario-details", nombre: "Coordinación Tutorías", cargo: "Nivel Secundario" },
-              children: [
-                { id: "docentes-tutorias-secundario", rows: [["Docentes"]], details: { id: "docentes-tutorias-secundario-details", nombre: "Docentes Tutorías", cargo: "Nivel Secundario" } }
-              ]
-            },
-            {
-              id: "pecs-secundario",
-              rows: [["PECS"], ["Nombres"]],
-              details: { id: "pecs-secundario-details", nombre: "PECS", cargo: "Programa de Estudios Curriculares" },
-            },
-            {
-              id: "personal-docente-secundario",
-              rows: [["Personal Docente"]],
-              details: { id: "personal-docente-secundario-details", nombre: "Personal Docente", cargo: "Nivel Secundario" },
-              children: [
-                { id: "docentes-secundario-general", rows: [["Docentes"]], details: { id: "docentes-secundario-general-details", nombre: "Docentes Generales", cargo: "Nivel Secundario" } }
-              ]
-            },
+            { id: "doe-secundario", rows: [["DOE"], ["Psicóloga", "Psicopedagoga"]], details: { id: "doe-secundario-details", nombre: "DOE Nivel Secundario", cargo: "Psicóloga y Psicopedagoga" }, },
+            { id: "sec-secundario", rows: [["Secretaria de Nivel"], ["Eugenia Barrientos"]], details: { id: "eugenia-barrientos", nombre: "Eugenia Barrientos", cargo: "Secretaria Nivel Secundario" }, },
+            { id: "coord-ingles-secundario", rows: [["Coordinación Inglés"]], details: { id: "coord-ingles-secundario-details", nombre: "Coordinación Inglés", cargo: "Nivel Secundario" }, children: [{ id: "docentes-ingles-secundario", rows: [["Docentes Inglés"]], details: { id: "docentes-ingles-secundario-details", nombre: "Docentes Inglés", cargo: "Nivel Secundario" } }] },
+            { id: "coord-edfisica-secundario", rows: [["Coordinación Educación Física"]], details: { id: "coord-edfisica-secundario-details", nombre: "Coordinación Educación Física", cargo: "Nivel Secundario" }, children: [{ id: "docentes-edfisica-secundario", rows: [["Docentes"]], details: { id: "docentes-edfisica-secundario-details", nombre: "Docentes Educación Física", cargo: "Nivel Secundario" } }] },
+            { id: "coord-feyvida-secundario", rows: [["Coordinación Fe y Vida"]], details: { id: "coord-feyvida-secundario-details", nombre: "Coordinación Fe y Vida", cargo: "Nivel Secundario" }, children: [{ id: "docentes-feyvida-secundario", rows: [["Docentes"]], details: { id: "docentes-feyvida-secundario-details", nombre: "Docentes Fe y Vida", cargo: "Nivel Secundario" } }] },
+            { id: "coord-tutorias-secundario", rows: [["Coordinación Tutorias"]], details: { id: "coord-tutorias-secundario-details", nombre: "Coordinación Tutorías", cargo: "Nivel Secundario" }, children: [{ id: "docentes-tutorias-secundario", rows: [["Docentes"]], details: { id: "docentes-tutorias-secundario-details", nombre: "Docentes Tutorías", cargo: "Nivel Secundario" } }] },
+            { id: "pecs-secundario", rows: [["PECS"], ["Nombres"]], details: { id: "pecs-secundario-details", nombre: "PECS", cargo: "Programa de Estudios Curriculares" }, },
+            { id: "personal-docente-secundario", rows: [["Personal Docente"]], details: { id: "personal-docente-secundario-details", nombre: "Personal Docente", cargo: "Nivel Secundario" }, children: [{ id: "docentes-secundario-general", rows: [["Docentes"]], details: { id: "docentes-secundario-general-details", nombre: "Docentes Generales", cargo: "Nivel Secundario" } }] },
           ]
         },
       ]
@@ -202,24 +140,14 @@ export const orgData: OrgNode = {
         // --- ÁREA LEGAL ---
         {
           id: "legal",
-          rows: [["Área Legal"], ["Dra. Clara García Castellanos"]],
-          details: {
-            id: "clara-garcia",
-            nombre: "Dra. Clara García Castellanos",
-            cargo: "Asesoría Legal (Tercerizada)",
-            horas: 15,
-            descripcion: "Servicio de asesoramiento legal externo, con 15 horas semanales."
-          },
+          rows: [["Área Legal"], ["Dra. Clara García Castellanos (15 hs - Tercerizada)"]],
+          details: { id: "clara-garcia", nombre: "Dra. Clara García Castellanos", cargo: "Asesoría Legal (Tercerizada)", horas: 15, descripcion: "Servicio de asesoramiento legal externo, con 15 horas semanales." },
         },
         // --- ÁREAS DE FAMILIA/SOCIALES ---
         {
           id: "area-familia",
           rows: [["Area Familia (Polo)"], ["Maria Marta Rojas (Polo)"]],
-          details: {
-            id: "maria-rojas",
-            nombre: "Maria Marta Rojas (Polo)",
-            cargo: "Directora Area Familia",
-          },
+          details: { id: "maria-rojas", nombre: "Maria Marta Rojas (Polo)", cargo: "Directora Area Familia" },
         },
         {
           id: "capellanes",
@@ -241,10 +169,10 @@ export const orgData: OrgNode = {
           rows: [["Recepción"], ["Pia Heguy B."], ["Mercedes Araoz T."], ["Felicitas Del Frari"]],
           details: { id: "recepcion-equipo", nombre: "Equipo de Recepción", cargo: "..." },
         },
-        // --- ÁREA DE ADMINISTRACIÓN (COMPLETA) ---
+        // --- ÁREA DE ADMINISTRACIÓN (COMPLETA Y CORREGIDA) ---
         {
           id: "area-admin",
-          rows: [["Administración (Polo)"], ["Cristina Navarro Zaldarriaga"]],
+          rows: [["Administración (Polo)"], ["Cristina Navarro Zaldarriaga (34 hs)"]],
           details: { 
             id: "cristina-navarro", 
             nombre: "Cristina Navarro Zaldarriaga", 
@@ -254,7 +182,7 @@ export const orgData: OrgNode = {
           children: [
             {
               id: "facturacion",
-              rows: [["Facturacion y Cobranzas"], ["- Virginia Melhen", "- Mercedes Garcia Posse", "- Victoria Morano"]],
+              rows: [["Facturacion y Cobranzas"], ["Virginia Melhen (6 hs)", "Mercedes Garcia Posse (34 hs)", "Victoria Morano (8 hs - Tercerizada)"]],
               details: { 
                 id: "facturacion-equipo", 
                 nombre: "Facturación y Cobranzas", 
@@ -268,7 +196,7 @@ export const orgData: OrgNode = {
             },
             {
               id: "contabilidad",
-              rows: [["Contabilidad y Tesoreria"], ["- Cristina Zottoli Z.", "- Virginia Melhen"]],
+              rows: [["Contabilidad y Tesoreria"], ["Cristina Zottoli Z. (25 hs)", "Virginia Melhen (34 hs)"]],
               details: { 
                 id: "contabilidad-equipo", 
                 nombre: "Contabilidad y Tesoreria", 
@@ -281,7 +209,7 @@ export const orgData: OrgNode = {
             },
             {
               id: "rrhh",
-              rows: [["RRHH"], ["- Dolores Kaese", "- Guillermina Conti", "- Belén Manes"]],
+              rows: [["RRHH"], ["Dolores Kaese (34 hs)", "Guillermina Conti (34 hs)", "Belén Manes (20 hs - Tercerizada)"]],
               details: { 
                 id: "rrhh-equipo", 
                 nombre: "RRHH", 
@@ -295,7 +223,7 @@ export const orgData: OrgNode = {
             },
             {
               id: "mantenimiento",
-              rows: [["Mantenimiento, Op. y Ss."], ["- Juan Pablo Varela", "- Bernardo Bott"]],
+              rows: [["Mantenimiento, Op. y Ss."], ["Juan Pablo Varela (34 hs)", "Bernardo Bott (24,5 hs)"]],
               details: { 
                 id: "mantenimiento-equipo", 
                 nombre: "Mantenimiento, Op. y Ss.", 
@@ -310,9 +238,9 @@ export const orgData: OrgNode = {
               id: "limpieza",
               rows: [
                 ["Limpieza"], 
-                ["(Lastenia Kaese supervisora)"],
-                ["- Fidel Rojas", "- Bernardo Bott", "- Carolina Fernandez", "- Ariel Ruiz"],
-                ["- Francisco Diaz", "- Sabina Moyano", "- Susana Bazan", "- Fernando Rodriguez"]
+                ["Lastenia Kaese (15 hs - supervisora Tercerizada)"],
+                ["Fidel Rojas (46.5 hs)", "Bernardo Bott (22 hs)", "Carolina Fernandez (46.5 hs)", "Ariel Ruiz (46.5 hs)"],
+                ["Francisco Diaz (31 hs)", "Sabina Moyano (45 hs)", "Susana Bazan (37 hs)", "Fernando Rodriguez (31 hs)"]
               ],
               details: { 
                 id: "limpieza-equipo", 
