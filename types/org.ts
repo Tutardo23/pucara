@@ -1,12 +1,17 @@
-export type OrgNode = {
-  id: string;
-  etiqueta: string;
-  persona?: {
-    id: string;
-    nombre: string;
-    cargo: string;
-    tipo: string; // 👈 antes seguro decía "Titular" | "Contratada"
-    horas: number;
-  };
+export interface NodeDetails {
+  id: string; 
+  nombre: string;
+  cargo: string;
+  email?: string;
+  descripcion?: string;
+  horas?: number;
+  members?: NodeDetails[]; 
+}
+
+export interface OrgNode {
+  id: string; 
+  rows: string[][]; 
+  details?: NodeDetails; 
   children?: OrgNode[];
-};
+  // ¡Sin propiedad 'layout'!
+}

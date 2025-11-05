@@ -2,6 +2,19 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-html, body {
-  @apply bg-neutral-50 text-gray-900 font-sans;
+/* Estilo opcional que te recomendé antes 
+  para ocultar los "handles" de conexión 
+*/
+.react-flow__handle {
+  opacity: 0 !important;
+}
+
+/* Aseguramos que el body y html ocupen toda la altura,
+  lo cual es crucial para que 'h-screen' funcione bien.
+*/
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
