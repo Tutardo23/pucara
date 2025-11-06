@@ -856,7 +856,7 @@ export const orgData: OrgNode = {
         // --- ÁREA LEGAL ---
         {
           id: "legal",
-          rows: [["Área Legal"], ["Dra. Clara García Castellanos (15 hs - Tercerizada)"]],
+          rows: [["Área Legal (Polo)"], ["Dra. Clara García Castellanos (15 hs - Tercerizada)"]],
           details: { id: "clara-garcia", nombre: "Dra. Clara García Castellanos", cargo: "Asesoría Legal (Tercerizada)", horas: 15, descripcion: "Servicio de asesoramiento legal externo, con 15 horas semanales." },
         },
         // --- ÁREAS DE FAMILIA/SOCIALES ---
