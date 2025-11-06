@@ -545,7 +545,7 @@ export const orgData: OrgNode = {
 
         
         // --- NIVEL SECUNDARIO ---
-        {
+       {
   id: "nivel-secundario",
   rows: [["Dirección Nivel Secundario"], ["Cruz Prats Griet Lucia (28,67 hs, Titular)"]],
   details: {
@@ -619,12 +619,20 @@ export const orgData: OrgNode = {
       children: [
         {
           id: "docentes-ingles-secundario",
-          rows: [["Docentes Inglés"], ["(Por agregar)"]],
+          rows: [
+            ["Docentes Inglés"],
+            ["María José Puig (14 hs)", "Lucía Molinelli (10,67 hs)"],
+            ["Josefina Diez (5,33 hs)"],
+          ],
           details: {
             id: "docentes-ingles-secundario-details",
             nombre: "Docentes Inglés",
             cargo: "Profesores de inglés",
-            members: [],
+            members: [
+              { id: "puig-maria-jose-d", nombre: "María José Puig", cargo: "Docente de Inglés", horas: 14 },
+              { id: "molinelli-lucia", nombre: "Lucía Molinelli", cargo: "Docente de Inglés", horas: 10.67 },
+              { id: "diez-josefina", nombre: "Josefina Diez", cargo: "Docente de Inglés", horas: 5.33 },
+            ],
           },
         },
       ],
@@ -639,18 +647,27 @@ export const orgData: OrgNode = {
         nombre: "Coordinación Educación Física",
         cargo: "Coordinadora del área de Educación Física",
         members: [
-          { id: "bravo-antezana-mf", nombre: "María Florencia Bravo Antezana", cargo: "Coordinadora de Ed. Física (Titular)", horas: 0.67 },
+          { id: "bravo-antezana-mf", nombre: "María Florencia Bravo Antezana", cargo: "Coordinadora de Ed. Física", horas: 0.67 },
         ],
       },
       children: [
         {
           id: "docentes-edfisica-secundario",
-          rows: [["Docentes Educación Física"], ["(Por agregar)"]],
+          rows: [
+            ["Docentes Educación Física"],
+            ["María Florencia Bravo Antezana (4 hs)", "Agustina Rojas (10 hs)"],
+            ["Lorena Rueda (8 hs)", "Carina Guerrero (4 hs)"],
+          ],
           details: {
             id: "docentes-edfisica-secundario-details",
             nombre: "Docentes Educación Física",
             cargo: "Profesores de Educación Física",
-            members: [],
+            members: [
+              { id: "bravo-antezana-mf2", nombre: "María Florencia Bravo Antezana", cargo: "Docente Ed. Física", horas: 4 },
+              { id: "rojas-agustina", nombre: "Agustina Rojas", cargo: "Docente Ed. Física y Hockey", horas: 10 },
+              { id: "rueda-lorena", nombre: "Lorena Rueda", cargo: "Docente Ed. Física y Hockey", horas: 8 },
+              { id: "guerrero-carina", nombre: "Carina Guerrero", cargo: "Docente Ed. Física", horas: 4 },
+            ],
           },
         },
       ],
@@ -665,18 +682,27 @@ export const orgData: OrgNode = {
         nombre: "Coordinación Fe y Vida",
         cargo: "Coordinadora del área de Fe y Vida",
         members: [
-          { id: "salas-ercilia", nombre: "Ercilia Salas", cargo: "Coordinadora Fe y Vida (Titular)", horas: 3.33 },
+          { id: "salas-ercilia", nombre: "Ercilia Salas", cargo: "Coordinadora Fe y Vida", horas: 3.33 },
         ],
       },
       children: [
         {
           id: "docentes-feyvida-secundario",
-          rows: [["Docentes Fe y Vida"], ["(Por agregar)"]],
+          rows: [
+            ["Docentes Fe y Vida"],
+            ["Ercilia Salas (15,33 hs)", "Gisela De Lafuente (10,67 hs)"],
+            ["María Virginia Eroles (10 hs)", "Gregoria Masegosa (8 hs)"],
+          ],
           details: {
             id: "docentes-feyvida-secundario-details",
             nombre: "Docentes Fe y Vida",
             cargo: "Profesores del área Fe y Vida",
-            members: [],
+            members: [
+              { id: "salas-ercilia-doc", nombre: "Ercilia Salas", cargo: "Docente Fe y Vida", horas: 15.33 },
+              { id: "de-lafuente-gisela", nombre: "Gisela De Lafuente", cargo: "Docente Fe y Vida", horas: 10.67 },
+              { id: "eroles-virginia", nombre: "María Virginia Eroles", cargo: "Docente Fe y Vida", horas: 10 },
+              { id: "masegosa-gregoria", nombre: "Gregoria Masegosa", cargo: "Docente Fe y Vida", horas: 8 },
+            ],
           },
         },
       ],
@@ -691,18 +717,33 @@ export const orgData: OrgNode = {
         nombre: "Coordinación Tutorías",
         cargo: "Responsable del área de Tutorías",
         members: [
-          { id: "mohamad-evangelina-tut", nombre: "Evangelina Mohamad", cargo: "Coordinadora de Tutorías (Titular)" },
+          { id: "mohamad-evangelina-tut", nombre: "Evangelina Mohamad", cargo: "Coordinadora de Tutorías" },
         ],
       },
       children: [
         {
           id: "tutoras-secundario",
-          rows: [["Tutoras"], ["(Por agregar)"]],
+          rows: [
+            ["Tutoras"],
+            ["A. Berno (7,33 hs)", "M. V. Eroles (6 hs)"],
+            ["M. J. Puig (3,33 hs)", "N. Gioia (5,33 hs)"],
+            ["C. Nieva (2 hs)", "F. Terán (8 hs)"],
+            ["M. P. Méndez (2,67 hs)", "L. Molinelli (2,67 hs)"],
+          ],
           details: {
             id: "tutoras-secundario-details",
             nombre: "Tutoras",
             cargo: "Equipo de tutorías",
-            members: [],
+            members: [
+              { id: "berno-norma", nombre: "Norma Ana Lía Berno", cargo: "Tutora", horas: 7.33 },
+              { id: "eroles-virginia-tut", nombre: "María Virginia Eroles", cargo: "Tutora", horas: 6 },
+              { id: "puig-maria-jose-tut", nombre: "María José Puig", cargo: "Tutora", horas: 3.33 },
+              { id: "gioia-natalia-tut", nombre: "Natalia Gioia", cargo: "Tutora", horas: 5.33 },
+              { id: "nieva-cynthia-tut", nombre: "Cynthia Nieva", cargo: "Tutora", horas: 2 },
+              { id: "teran-florencia-tut", nombre: "Florencia Terán", cargo: "Tutora", horas: 8 },
+              { id: "mendez-teran-mp", nombre: "María de la Paz Méndez Terán", cargo: "Tutora", horas: 2.67 },
+              { id: "molinelli-lucia-tut", nombre: "Lucía Molinelli", cargo: "Tutora", horas: 2.67 },
+            ],
           },
         },
       ],
@@ -711,57 +752,90 @@ export const orgData: OrgNode = {
     // --- PECS ---
     {
       id: "pecs-secundario",
-      rows: [["PECS"], ["(Sin coordinación actual)"]],
+      rows: [["PECS"], ["(sin coordinación)"]],
       details: {
         id: "pecs-secundario-details",
         nombre: "PECS",
-        cargo: "Proyecto de Educación Cultural y Social",
-        members: [],
+        cargo: "PECS (sin coordinación)",
       },
       children: [
         {
-          id: "docentes-pecs-secundario",
-          rows: [["Docentes PECS"], ["(Por agregar)"]],
+          id: "preceptoras-secundario",
+          rows: [
+            ["Preceptoras"],
+            ["María Eugenia Aid (32 hs)", "Florencia Coggan (32 hs)"],
+            ["María José Terán (32 hs)"],
+          ],
           details: {
-            id: "docentes-pecs-secundario-details",
-            nombre: "Docentes PECS",
-            cargo: "Profesores que integran PECS",
-            members: [],
+            id: "preceptoras-secundario-details",
+            nombre: "Preceptoras",
+            cargo: "Equipo de preceptoras",
+            members: [
+              { id: "aid-maria-eugenia", nombre: "María Eugenia Aid", cargo: "Preceptora", horas: 32 },
+              { id: "coggan-florencia", nombre: "Florencia Coggan", cargo: "Preceptora", horas: 32 },
+              { id: "teran-maria-jose", nombre: "María José Terán", cargo: "Preceptora", horas: 32 },
+            ],
           },
         },
       ],
     },
 
-    // --- PRECEPTORAS ---
+    // --- PERSONAL DOCENTE HUMANÍSTICAS ---
     {
-      id: "preceptoras-secundario",
+      id: "personal-docente-secundario-humanas",
       rows: [
-        ["Preceptoras"],
-        ["María Eugenia Aid (32 hs, Titular)"],
-        ["Florencia Coggan (32 hs, Titular)"],
-        ["María José Terán (32 hs, Titular)"],
+        ["Personal Docente – Áreas Humanísticas"],
+        ["Pamela Arias (19,33 hs)", "Martina Colombres (5,33 hs)"],
+        ["Paula Migliavacca (5,33 hs)", "Paola Arena (6 hs)"],
+        ["Natalia Gioia (22,67 hs)", "María Silvia Villagra (12 hs)"],
+        ["Mariana Borkosky (2 hs)", "Silvina Mohamad (6 hs)"],
       ],
       details: {
-        id: "preceptoras-secundario-details",
-        nombre: "Preceptoras Nivel Secundario",
-        cargo: "Equipo de preceptoras",
+        id: "personal-docente-secundario-humanas-details",
+        nombre: "Personal Docente – Áreas Humanísticas",
+        cargo: "Lengua, Historia, Ética, Política, Arte",
         members: [
-          { id: "aid-maria-eugenia", nombre: "María Eugenia Aid", cargo: "Preceptora (Titular)", horas: 32 },
-          { id: "coggan-florencia", nombre: "Florencia Coggan", cargo: "Preceptora (Titular)", horas: 32 },
-          { id: "teran-maria-jose", nombre: "María José Terán", cargo: "Preceptora (Titular)", horas: 32 },
+          { id: "arias-pamela", nombre: "Pamela Arias", cargo: "Lengua", horas: 19.33 },
+          { id: "colombres-martina", nombre: "Martina Colombres", cargo: "Lengua", horas: 5.33 },
+          { id: "migliavacca-paula", nombre: "Paula Migliavacca", cargo: "Lengua", horas: 5.33 },
+          { id: "arena-paola", nombre: "Paola Arena", cargo: "Historia", horas: 6 },
+          { id: "gioia-natalia", nombre: "Natalia Gioia", cargo: "Ética e Historia", horas: 22.67 },
+          { id: "villagra-maria", nombre: "María Silvia Villagra", cargo: "Política", horas: 12 },
+          { id: "borkosky-mariana", nombre: "Mariana Borkosky", cargo: "Arte", horas: 2 },
+          { id: "mohamad-silvina", nombre: "Silvina Mohamad", cargo: "Arte", horas: 6 },
         ],
       },
     },
 
-    // --- DOCENTES SIN COORDINACIÓN ---
+    // --- PERSONAL DOCENTE CIENTÍFICAS / TÉCNICAS ---
     {
-      id: "docentes-secundario",
-      rows: [["Docentes"], ["(Materias no coordinadas – por agregar)"]],
+      id: "personal-docente-secundario-ciencias",
+      rows: [
+        ["Personal Docente – Áreas Científicas / Técnicas"],
+        ["Griet Cruz Prats (3,33 hs)", "Bettina Gómez (17,33 hs)"],
+        ["Carla Marengo (15,33 hs)", "Ana Belén Reynoso (6,67 hs)"],
+        ["Silvana Toffoletti (6 hs)", "Lucía Auad (14 hs)"],
+        ["María Laura Pérez (4 hs)", "Ana Lía Berno (8,67 hs)"],
+        ["Florencia Terán (4 hs)", "Cynthia Nieva (11,33 hs)"],
+        ["Gisela De Lafuente (8 hs)"],
+      ],
       details: {
-        id: "docentes-secundario-details",
-        nombre: "Docentes sin coordinación específica",
-        cargo: "Cuerpo docente general del nivel",
-        members: [],
+        id: "personal-docente-secundario-ciencias-details",
+        nombre: "Personal Docente – Áreas Científicas / Técnicas",
+        cargo: "Matemática, Ciencias, Tecnología, Economía",
+        members: [
+          { id: "cruz-prats-griet", nombre: "Griet Cruz Prats", cargo: "Matemática", horas: 3.33 },
+          { id: "gomez-bettina", nombre: "Bettina Gómez", cargo: "Matemática y Física", horas: 17.33 },
+          { id: "marengo-carla", nombre: "Carla Marengo", cargo: "Matemática", horas: 15.33 },
+          { id: "reynoso-ana", nombre: "Ana Belén Reynoso", cargo: "Matemática", horas: 6.67 },
+          { id: "toffoletti-silvana", nombre: "Silvana Toffoletti", cargo: "Matemática", horas: 6 },
+          { id: "auad-lucia", nombre: "Lucía Auad", cargo: "Biología, Salud y Química", horas: 14 },
+          { id: "perez-laura", nombre: "María Laura Pérez", cargo: "Biología y Salud", horas: 4 },
+          { id: "berno-ana-lia", nombre: "Ana Lía Berno", cargo: "Tecnología", horas: 8.67 },
+          { id: "teran-florencia", nombre: "Florencia Terán", cargo: "TIC", horas: 4 },
+          { id: "nieva-cynthia", nombre: "Cynthia Nieva", cargo: "Administración y SIC", horas: 11.33 },
+          { id: "de-lafuente-gisela-eco", nombre: "Gisela De Lafuente", cargo: "Economía", horas: 8 },
+        ],
       },
     },
   ],
