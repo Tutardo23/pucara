@@ -1,25 +1,31 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-/* Estilo opcional que te recomendé antes 
-  para ocultar los "handles" de conexión 
-*/
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .react-flow__handle {
   opacity: 0 !important;
 }
 
-/* Aseguramos que el body y html ocupen toda la altura,
-  lo cual es crucial para que 'h-screen' funcione bien.
-*/
 html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
+/* === Textos dentro del SVG de React Flow === */
+/* === Texto de los nodos (para mejor legibilidad) === */
+.react-flow__node text,
 .react-flow-organigrama text {
+  font-family: 'Dosis', sans-serif !important;
+  font-weight: 700 !important; /* más grueso */
+  font-size: 1rem !important; /* aumentá a gusto: 0.95rem, 1rem, 1.1rem */
+  fill: #111 !important; /* más contraste */
   shape-rendering: geometricPrecision;
   text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased !important;
 }

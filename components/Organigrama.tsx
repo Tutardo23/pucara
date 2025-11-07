@@ -54,7 +54,6 @@ function OrgChartFlow({
   const [edges, setEdges, onEdgesChange] = useEdgesState(layoutedEdges);
   const { fitView, fitBounds } = useReactFlow();
 
-  // 🔹 Centrar al cargar
   useEffect(() => {
     const timeout = setTimeout(() => {
       fitView({ duration: 800, padding: 0.3 });
@@ -62,13 +61,11 @@ function OrgChartFlow({
     return () => clearTimeout(timeout);
   }, [fitView]);
 
-  // 🔹 Actualizar nodos al expandir
   useEffect(() => {
     setNodes(layoutedNodes);
     setEdges(layoutedEdges);
   }, [layoutedNodes, layoutedEdges, setNodes, setEdges]);
 
-  // 🔹 Alejar solo para los 2 nodos principales
   const handleExpandAndRefit = useCallback(
     (nodeId: string) => {
       if (nodeId === "grupo-niveles" || nodeId === "grupo-areas") {
@@ -80,7 +77,6 @@ function OrgChartFlow({
     [fitView]
   );
 
-  // 🔹 Zoom hacia un nodo específico
   const zoomToNode = useCallback(
     (node: Node<CustomOrgNode>) => {
       const nodeBounds = {
@@ -94,15 +90,12 @@ function OrgChartFlow({
     [fitBounds]
   );
 
-  // 🔹 Manejo de clics
   const handleNodeClick: CustomNodeClick = (event, node) => {
     const target = event.target as HTMLElement;
     if (target.closest('[data-action="toggle"]')) {
-      // ➕ Expandir/colapsar
       onToggleExpand(node.id);
       handleExpandAndRefit(node.id);
     } else {
-      // 👁️ Zoom al nodo
       zoomToNode(node);
       onNodeSelect(node);
     }
@@ -124,7 +117,42 @@ function OrgChartFlow({
       nodesDraggable={true}
     >
       <Controls />
-      <Background />
+      <Background className="react-flow-organigrama" />
+
+      {/* 🔹 Escudos grandes arriba a la derecha */}
+      <div
+        style={{
+          position: "absolute",
+          top: 20,
+          right: 20,
+          zIndex: 10,
+          pointerEvents: "none",
+          display: "flex",
+          alignItems: "center",
+          gap: "20px",
+        }}
+      >
+        <img
+          src="/escudo1.png"
+          alt="Escudo Colegio 1"
+          style={{
+            height: "120px",
+            width: "auto",
+            objectFit: "contain",
+            filter: "drop-shadow(0px 3px 6px rgba(0,0,0,0.35))",
+          }}
+        />
+        <img
+          src="/escudo2.png"
+          alt="Escudo Colegio 2"
+          style={{
+            height: "120px",
+            width: "auto",
+            objectFit: "contain",
+            filter: "drop-shadow(0px 3px 6px rgba(0,0,0,0.35))",
+          }}
+        />
+      </div>
     </ReactFlow>
   );
 }
@@ -163,9 +191,9 @@ export default function Organigrama() {
   }, []);
 
   return (
-    <div className="w-screen h-screen flex flex-col bg-neutral-50">
-      {/* 🔹 Título */}
-      <h1 className="text-xl font-semibold p-4 text-center border-b border-neutral-200 bg-white shadow-sm">
+    <div className="w-screen h-screen flex flex-col bg-neutral-50 relative">
+      {/* 🔹 Título centrado arriba */}
+      <h1 className="text-2xl font-bold text-center font-[Dosis] pt-4 pb-2">
         Organigrama Institucional
       </h1>
 
