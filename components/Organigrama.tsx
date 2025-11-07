@@ -27,9 +27,16 @@ type CustomOrgNode = OrgNode & {
 
 const nodeTypes = { custom: CustomNode };
 
-type CustomNodeClick = (event: React.MouseEvent, node: Node<CustomOrgNode>) => void;
+type CustomNodeClick = (
+  event: React.MouseEvent,
+  node: Node<CustomOrgNode>
+) => void;
+
 type CustomPaneClick = () => void;
 
+// =======================================================
+// 🔹 Componente del flujo (organigrama)
+// =======================================================
 function OrgChartFlow({
   nodes: layoutedNodes,
   edges: layoutedEdges,
@@ -87,15 +94,15 @@ function OrgChartFlow({
     [fitBounds]
   );
 
+  // 🔹 Manejo de clics
   const handleNodeClick: CustomNodeClick = (event, node) => {
     const target = event.target as HTMLElement;
-
     if (target.closest('[data-action="toggle"]')) {
-      // ➕ Cuando se presiona el "+", controlamos según el nodo
+      // ➕ Expandir/colapsar
       onToggleExpand(node.id);
       handleExpandAndRefit(node.id);
     } else {
-      // 👁️ Clic en el cuerpo → zoom al nodo
+      // 👁️ Zoom al nodo
       zoomToNode(node);
       onNodeSelect(node);
     }
@@ -122,9 +129,16 @@ function OrgChartFlow({
   );
 }
 
+// =======================================================
+// 🔹 Componente principal del organigrama
+// =======================================================
 export default function Organigrama() {
-  const [selectedNode, setSelectedNode] = useState<Node<CustomOrgNode> | null>(null);
-  const [expandedNodes, setExpandedNodes] = useState(new Set<string>(["consejo"]));
+  const [selectedNode, setSelectedNode] = useState<Node<CustomOrgNode> | null>(
+    null
+  );
+  const [expandedNodes, setExpandedNodes] = useState(
+    new Set<string>(["consejo"])
+  );
 
   const { nodes, edges } = useMemo(
     () => getLayoutedElements(orgData, expandedNodes),
@@ -150,10 +164,12 @@ export default function Organigrama() {
 
   return (
     <div className="w-screen h-screen flex flex-col bg-neutral-50">
+      {/* 🔹 Título */}
       <h1 className="text-xl font-semibold p-4 text-center border-b border-neutral-200 bg-white shadow-sm">
         Organigrama Institucional
       </h1>
 
+      {/* 🔹 Contenedor principal */}
       <div className="flex-grow flex flex-row overflow-hidden relative">
         <div className="flex-grow h-full">
           <ReactFlowProvider>
@@ -168,10 +184,9 @@ export default function Organigrama() {
         </div>
 
         <div
-          className={`
-            transition-all duration-300 ease-in-out
-            ${selectedNode ? "w-96" : "w-0"}
-          `}
+          className={`transition-all duration-300 ease-in-out ${
+            selectedNode ? "w-96" : "w-0"
+          }`}
           style={{ width: selectedNode ? "24rem" : "0" }}
         >
           <InfoSidebar node={selectedNode} onClose={handlePaneClick} />

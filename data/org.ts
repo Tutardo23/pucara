@@ -803,6 +803,11 @@ export const orgData: OrgNode = {
           { id: "villagra-maria", nombre: "María Silvia Villagra", cargo: "Política", horas: 12 },
           { id: "borkosky-mariana", nombre: "Mariana Borkosky", cargo: "Arte", horas: 2 },
           { id: "mohamad-silvina", nombre: "Silvina Mohamad", cargo: "Arte", horas: 6 },
+          { id: "cruzado-fatima", nombre: "Fátima Magalí Cruzado", cargo: "Geografía", horas: 22.67 },
+{ id: "costas-maria", nombre: "María Carolina Costas", cargo: "(sin especificar)", horas: 9.33 },
+{ id: "garcia-maria", nombre: "María Josefina García González", cargo: "(sin especificar)", horas: 14.67 },
+{ id: "avila-maria", nombre: "María del Rosario Ávila Gallo", cargo: "(sin especificar)", horas: 6 },
+
         ],
       },
     },
@@ -835,6 +840,10 @@ export const orgData: OrgNode = {
           { id: "teran-florencia", nombre: "Florencia Terán", cargo: "TIC", horas: 4 },
           { id: "nieva-cynthia", nombre: "Cynthia Nieva", cargo: "Administración y SIC", horas: 11.33 },
           { id: "de-lafuente-gisela-eco", nombre: "Gisela De Lafuente", cargo: "Economía", horas: 8 },
+          { id: "cazon-agustina", nombre: "María Agustina Cazón", cargo: "(sin especificar)", horas: 6.67 },
+{ id: "fuentes-lourdes", nombre: "Lourdes Camila Fuentes Ortiz", cargo: "(sin especificar)", horas: 8 },
+{ id: "natale-aida", nombre: "Aida Constanza Natale", cargo: "(sin especificar)", horas: 3.33 },
+
         ],
       },
     },
