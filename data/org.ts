@@ -885,8 +885,9 @@ export const orgData: OrgNode = {
   rows: [
     ["Área Familia, Comunicación y Postulaciones (Polo)"],
     ["María Marta Rojas (31 hs)", "María Eugenia Martín (5 hs)"],
-    ["Felicitas Del Frari (29 hs)", "Agostina García Castro (20 hs)"]
-  ],
+    ["Felicitas Del Frari (29 hs)", "Agostina García Castro (20 hs)"],
+    ["Constanza Lavergne (10 hs)"]
+    ],
   details: {
     id: "area-familia-polo-details",
     nombre: "Área Familia, Comunicación y Postulaciones (Polo)",
@@ -895,7 +896,8 @@ export const orgData: OrgNode = {
       { id: "maria-marta-rojas", nombre: "María Marta Rojas", cargo: "Directora Área Familia (Polo)", horas: 31 },
       { id: "maria-eugenia-martin", nombre: "María Eugenia Martín", cargo: "Colaboradora Área Familia (Polo)", horas: 5 },
       { id: "felicitas-del-frari", nombre: "Felicitas Del Frari", cargo: "Responsable de Postulaciones (Polo)", horas: 29 },
-      { id: "agostina-garcia", nombre: "Agostina García Castro", cargo: "Comunicación y Promoción (Polo)", horas: 20 }
+      { id: "agostina-garcia", nombre: "Agostina García Castro", cargo: "Comunicación y Promoción (Polo)", horas: 20 },
+      { id: "constanza-lavergne", nombre: "Constanza Lavergne", cargo: "(Polo)", horas: 10 }
     ]
   }
 },
