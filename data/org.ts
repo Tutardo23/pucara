@@ -932,8 +932,7 @@ export const orgData: OrgNode = {
   }
 }
 ,
-{ id: "contabilidad", rows: [["Contabilidad y Tesoreria"], ["Cristina Zottoli Z. (25 hs)", "Virginia Melhen (34 hs)"]], details: { id: "contabilidad-equipo", nombre: "Contabilidad y Tesoreria", cargo: "Equipo", members: [ { id: "cristina-z", nombre: "Cristina Zottoli Z.", cargo: "", horas: 25 }, { id: "virginia-m-2", nombre: "Virginia Melhen", cargo: "", horas: 34 } ] }, },
-        // --- ÁREA DE ADMINISTRACIÓN (COMPLETA Y CORREGIDA) ---
+
         {
           id: "area-admin",
           rows: [["Administración (Polo)"], ["Cristina Navarro Zaldarriaga (34 hs)"]],
@@ -945,7 +944,8 @@ export const orgData: OrgNode = {
           },
           children: [
             { id: "facturacion", rows: [["Facturacion y Cobranzas"], ["Virginia Melhen (6 hs)", "Mercedes Garcia Posse (34 hs)", "Victoria Morano (8 hs - Tercerizada)"]], details: { id: "facturacion-equipo", nombre: "Facturación y Cobranzas", cargo: "Equipo", members: [ { id: "virginia-m", nombre: "Virginia Melhen", cargo: "", horas: 6 }, { id: "mercedes-gp", nombre: "Mercedes Garcia Posse", cargo: "", horas: 34 }, { id: "victoria-m", nombre: "Victoria Morano", cargo: "Facturación tercerizada", horas: 8 } ] }, },
-            
+            { id: "contabilidad", rows: [["Contabilidad y Tesoreria"], ["Cristina Zottoli Z. (25 hs)", "Virginia Melhen (34 hs)"]], details: { id: "contabilidad-equipo", nombre: "Contabilidad y Tesoreria", cargo: "Equipo", members: [ { id: "cristina-z", nombre: "Cristina Zottoli Z.", cargo: "", horas: 25 }, { id: "virginia-m-2", nombre: "Virginia Melhen", cargo: "", horas: 34 } ] }, },
+        // --- ÁREA DE ADMINISTRACIÓN (COMPLETA Y CORREGIDA) ---
             { id: "rrhh", rows: [["RRHH"], ["Dolores Kaese (34 hs)", "Guillermina Conti (34 hs)"]], details: { id: "rrhh-equipo", nombre: "RRHH", cargo: "Equipo", members: [ { id: "dolores-k", nombre: "Dolores Kaese", cargo: "", horas: 34 }, { id: "guillermina-c", nombre: "Guillermina Conti", cargo: "", horas: 34 } ] }, },
             { id: "mantenimiento", rows: [["Mantenimiento, Op. y Ss."], ["Juan Pablo Varela (34 hs)", "Bernardo Bott (24,5 hs)"]], details: { id: "mantenimiento-equipo", nombre: "Mantenimiento, Op. y Ss.", cargo: "Equipo", members: [ { id: "juan-v", nombre: "Juan Pablo Varela", cargo: "", horas: 34 }, { id: "bernardo-b", nombre: "Bernardo Bott", cargo: "", horas: 24.5 } ] }, },
             { id: "limpieza", rows: [ ["Limpieza"], ["(Lastenia Kaese 15 hs supervisora Tercerizada)"], ["Fidel Rojas (46.5 hs)", " Bernardo Bott (22 hs)", "Carolina Fernandez (46.5 hs)", "Ariel Ruiz (46.5 hs)"], ["Francisco Diaz (31 hs)", "Sabina Moyano (45 hs)", "Susana Bazan (37 hs)", "Fernando Rodriguez (31 hs)"] ], details: { id: "limpieza-equipo", nombre: "Limpieza", cargo: "Equipo de Limpieza", members: [ { id: "lastenia-k", nombre: "Lastenia Kaese", cargo: "Supervisora tercerizada", horas: 15 }, { id: "fidel-r", nombre: "Fidel Rojas", cargo: "Personal", horas: 46.5 }, { id: "bernardo-b-2", nombre: "Bernardo Bott", cargo: "Personal", horas: 22 }, { id: "carolina-f", nombre: "Carolina Fernandez", cargo: "Personal", horas: 46.5 }, { id: "ariel-r", nombre: "Ariel Ruiz", cargo: "Personal", horas: 46.5 }, { id: "francisco-d", nombre: "Francisco Diaz", cargo: "Personal", horas: 31 }, { id: "sabina-m", nombre: "Sabina Moyano", cargo: "Personal", horas: 45 }, { id: "susana-b", nombre: "Susana Bazan", cargo: "Personal", horas: 37 }, { id: "fernando-r", nombre: "Fernando Rodriguez", cargo: "Personal", horas: 31 } ] }, },
