@@ -609,7 +609,7 @@ export const orgData: OrgNode = {
               rows: [
                 ["Docentes Inglés"],
                 ["María José Puig (14 hs)", "Lucía Molinelli (10,67 hs)"],
-                ["Josefina García González (14,67 hs)", "María Méndez Terán (11,33 hs)"],
+                ["Josefina García González (14,67 hs)", "María Méndez Terán (7,33 hs)"],
               ],
               details: {
                 id: "docentes-ingles-secundario-details",
@@ -619,7 +619,7 @@ export const orgData: OrgNode = {
                   { id: "puig-maria-jose-d", nombre: "María José Puig", cargo: "Docente de Inglés", horas: 14 },
                   { id: "molinelli-lucia", nombre: "Lucía Molinelli", cargo: "Docente de Inglés", horas: 10.67 },
                   { id: "garcia-josefina", nombre: "Josefina García González", cargo: "Docente de Inglés", horas: 14.67 },
-                  { id: "mendez-teran-maria", nombre: "María Méndez Terán", cargo: "Docente de Inglés", horas: 11.33 },
+                  { id: "mendez-teran-maria", nombre: "María Méndez Terán", cargo: "Docente de Inglés", horas: 7.33 },
                 ],
               },
             },
@@ -715,7 +715,7 @@ export const orgData: OrgNode = {
               id: "tutoras-secundario",
               rows: [
                 ["Tutoras"],
-                ["Gisela De Lafuente (6,67 hs)", "María Ercilia Salas (4,66 hs)"],
+                ["Gisela De Lafuente (6,67 hs)", "María Ercilia Salas (5,33 hs)"],
                 ["Josefina García González (8,67 hs)", "Carina Celia Guerrero (4 hs)"],
                 ["Ana Lía Berno (7,33 hs)", "María V. Eroles (6 hs)"],
                 ["María J. Puig (3,33 hs)", "Natalia Gioia (5,33 hs)"],
@@ -728,7 +728,7 @@ export const orgData: OrgNode = {
                 cargo: "Equipo de tutorías",
                 members: [
                   { id: "lafuente-gisela-tut", nombre: "Gisela De Lafuente", cargo: "Tutora", horas: 6.67 },
-                  { id: "salas-ercilia-tut", nombre: "María Ercilia Salas", cargo: "Tutora", horas: 4.66 },
+                  { id: "salas-ercilia-tut", nombre: "María Ercilia Salas", cargo: "Tutora", horas: 5.33 },
                   { id: "garcia-gonzalez-j", nombre: "Josefina García González", cargo: "Tutora", horas: 8.67 },
                   { id: "guerrero-carina-tut", nombre: "Carina Celia Guerrero", cargo: "Tutora", horas: 4 },
                   { id: "berno-ana-tut", nombre: "Ana Lía Berno", cargo: "Tutora", horas: 7.33 },
@@ -785,7 +785,10 @@ export const orgData: OrgNode = {
     ["Paula Migliavacca (5,33 hs)", "Paola Arena (6 hs)"],
     ["Natalia Gioia (22,67 hs)", "María Silvia Villagra (12 hs)"],
     ["Mariana Borkosky (2 hs)", "Silvina Mohamad (6 hs)"],
-    ["María Virginia Eroles (3,33 hs)"], // ⬅️ agregada
+    ["María Virginia Eroles (3,33 hs)"],
+  ["Rosario Ávila Gallo (6 hs)", "Agustina Cazón (6,67 hs)"],
+  ["Carolina Costas (9,33 hs)", "Magalí Cruzado (22,66 hs)"],
+  ["Lourdes Fuentes (8 hs)"], // ⬅️ agregada
   ],
   details: {
     id: "personal-docente-secundario-humanas-details",
@@ -800,7 +803,13 @@ export const orgData: OrgNode = {
       { id: "villagra-maria", nombre: "María Silvia Villagra", cargo: "Política", horas: 12 },
       { id: "borkosky-mariana", nombre: "Mariana Borkosky", cargo: "Arte", horas: 2 },
       { id: "mohamad-silvina", nombre: "Silvina Mohamad", cargo: "Arte", horas: 6 },
-      { id: "eroles-virginia-humanas", nombre: "María Virginia Eroles", cargo: "Lengua y Ética", horas: 3.33 }, // ⬅️ nueva línea
+      { id: "eroles-virginia-humanas", nombre: "María Virginia Eroles", cargo: "Lengua y Ética", horas: 3.33 },
+      { id: "avila-rosario", nombre: "Rosario Ávila Gallo", cargo: "Lengua", horas: 6 },
+{ id: "cazon-agustina", nombre: "Agustina Cazón", cargo: "Lengua", horas: 6.67 },
+{ id: "costas-carolina", nombre: "Carolina Costas", cargo: "Historia", horas: 9.33 },
+{ id: "cruzado-magali", nombre: "Magalí Cruzado", cargo: "Lengua y Ética", horas: 22.66 },
+{ id: "fuentes-lourdes", nombre: "Lourdes Fuentes", cargo: "Arte", horas: 8 },
+ // ⬅️ nueva línea
     ],
   },
 },
@@ -817,7 +826,9 @@ export const orgData: OrgNode = {
     ["María Laura Pérez (4 hs)", "Ana Lía Berno (8,67 hs)"],
     ["Florencia Terán (4 hs)", "Cynthia Nieva (11,33 hs)"],
     ["Gisela De Lafuente (4 hs)", "Josefina Diez (5,33 hs)"], // ⬅️ horas actualizadas
-    ["María Ercilia Salas (11,33 hs)", "Gregoria Masegosa (4 hs)"], // ⬅️ nuevas incorporaciones
+    ["María Ercilia Salas (11,33 hs)", "Gregoria Masegosa (4 hs)"],
+    ["Constanza Natale (3,33 hs)"],
+ // ⬅️ nuevas incorporaciones
   ],
   details: {
     id: "personal-docente-secundario-ciencias-details",
@@ -837,7 +848,9 @@ export const orgData: OrgNode = {
       { id: "de-lafuente-gisela-eco", nombre: "Gisela De Lafuente", cargo: "Economía", horas: 4 }, // ⬅️ actualizada
       { id: "diez-josefina", nombre: "Josefina Diez", cargo: "Profesora (Científico-Técnico)", horas: 5.33 },
       { id: "salas-ercilia-ciencias", nombre: "María Ercilia Salas", cargo: "Ciencias Sociales / Técnicas", horas: 11.33 }, // ⬅️ nueva
-      { id: "masegosa-gregoria-ciencias", nombre: "Gregoria Masegosa", cargo: "Ciencias Sociales / Técnicas", horas: 4 }, // ⬅️ nueva
+      { id: "masegosa-gregoria-ciencias", nombre: "Gregoria Masegosa", cargo: "Ciencias Sociales / Técnicas", horas: 4 },
+      { id: "natale-constanza", nombre: "Constanza Natale", cargo: "Matemática", horas: 3.33 },
+ // ⬅️ nueva
     ],
   },
 },
